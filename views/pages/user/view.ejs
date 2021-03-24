@@ -1,0 +1,14 @@
+<% layout('../../layouts/admin') %>
+
+<% block('title', title); %>
+
+<div class="row">
+  <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
+    <div class="widget-content widget-content-area br-6">
+        First Name: <%= user.fname %><br>
+        Last Name: <%= user.lname %><br>
+        Email: <%= user.email %><br>
+        Mobile: <%= user.mobile %><br>
+    </div>
+  </div>
+</div>

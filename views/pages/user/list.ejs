@@ -1,0 +1,39 @@
+<% layout('../../layouts/admin') %>
+<% block('page_script','<script src="/admin/plugins/table/datatable/datatables.js"></script>') %>
+
+<% block('page_style','<link rel="stylesheet" type="text/css" href="/admin/plugins/table/datatable/datatables.css"><link rel="stylesheet" type="text/css" href="/admin/plugins/table/datatable/dt-global_style.css">') %>
+
+<% block('title', title); %>
+
+<div class="row">
+  <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
+    <div class="widget-content widget-content-area br-6">
+        <table id="zero-config" class="table table-striped" style="width:100%">
+            <thead>
+                <tr>
+                  <th>First </th>
+                  <th>Last Name</th>
+                  <th>Email</th>
+                  <th>Mobile</th>
+                  <th class="no-content">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+              <% _.each(users,function(user){ %>
+                <tr>
+                    <td><%= user.fname %></td>
+                    <td><%= user.lname %></td>
+                    <td><%= user.email %></td>
+                    <td><%= user.mobile %></td>
+                    <td>
+                      <a href="/user/<%= user.id %>" class="btn btn-primary">View</a>
+                      <a href="/user/<%= user.id %>/edit" class="btn btn-primary">Edit</a>
+                      <a href="/user/<%= user.id %>/delete" onclick="return confirm('Are You Sure')" class="btn btn-primary">Delete</a>
+                    </td>
+                </tr>
+              <% }) %>
+            </tbody>
+        </table>
+    </div>
+  </div>
+</div>
